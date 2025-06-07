@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Star, Heart, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -29,7 +30,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
       {/* Header with avatar and online status */}
       <div className="relative p-6 pb-4">
         <div className="flex items-start justify-between">
-          <div className="flex items-center space-x-3">
+          <Link to={`/creator/${creator.id}`} className="flex items-center space-x-3 flex-1">
             <div className="relative">
               <img 
                 src={creator.avatar} 
@@ -46,7 +47,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
               </h3>
               <p className="text-gray-500 text-sm">@{creator.username}</p>
             </div>
-          </div>
+          </Link>
           <button className="text-gray-400 hover:text-red-500 transition-colors">
             <Heart className="w-5 h-5" />
           </button>
@@ -107,12 +108,14 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
           <MessageSquare className="w-4 h-4 mr-2" />
           Написать
         </Button>
-        <Button 
-          size="sm" 
-          className="flex-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-        >
-          Заказать
-        </Button>
+        <Link to={`/creator/${creator.id}`} className="flex-1">
+          <Button 
+            size="sm" 
+            className="w-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+          >
+            Подробнее
+          </Button>
+        </Link>
       </div>
     </div>
   );
