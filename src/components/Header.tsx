@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Search, User, Plus, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,14 +11,14 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">U</span>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               UGC Market
             </span>
-          </div>
+          </Link>
 
           {/* Search */}
           <div className="flex-1 max-w-xl mx-8">
@@ -40,10 +41,12 @@ const Header = () => {
               <User className="w-4 h-4 mr-2" />
               Регистрация
             </Button>
-            <Button className="rounded-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
-              <Plus className="w-4 h-4 mr-2" />
-              Создать заказ
-            </Button>
+            <Link to="/create-order">
+              <Button className="rounded-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700">
+                <Plus className="w-4 h-4 mr-2" />
+                Создать заказ
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
