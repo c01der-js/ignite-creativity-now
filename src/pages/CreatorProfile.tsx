@@ -240,7 +240,7 @@ const CreatorProfile = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Услуги</h2>
               <div className="space-y-4">
                 {creator.services.map((service) => (
-                  <ServiceCard key={service.id} service={service} />
+                  <ServiceCard key={service.id} service={service} creatorId={creator.id} />
                 ))}
               </div>
             </section>
@@ -254,3 +254,4 @@ const CreatorProfile = () => {
 };
 
 export default CreatorProfile;
+
